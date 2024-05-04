@@ -1,2 +1,2 @@
 # NativeFrontEnd
-致力于原生开发前端页面或架构js或ts
+用原生js或ts实现简单的界面或组件
