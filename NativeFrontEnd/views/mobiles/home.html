@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="smfont">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta HTTP-EQUIV="expires" CONTENT="0">
+    <meta itemprop="name" content="陕西意达通科技有限公司">
+    <meta itemprop="Description" content="软件定制开发，MES，ERP，财务">
+    <meta itemprop="image" content="../../img/favicon.ico">
+    <title>意达通</title>
+    <link rel="stylesheet" type="text/css" href="../../css/ztgridflex/ztgridflex.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/ztnavigation/ztnavigation.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/ztcontainer/ztcontainer.css" />
+    <script type="text/javascript" src="../../css/ztgridflex/ztgridflex.js"></script>
+    <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="ztcontainer">
+    <div class="ztmenu-block ztmenu-block-1 ztmenu-block-top">
+        <!-- padding-top:10px;padding-bottom:16px; -->
+        <div class="ztrow ztrow-between" style="margin-right:30px;padding-top:2px;padding-bottom:2px;" id="row0">  
+            <div class="ztrow ztrow-left">
+                <div> <a href="../../index.html "  class="nav"> < </a> </div>                       
+            </div>
+            <!-- <span>center</span> -->
+            <div><a href="http://www.wisdomofwisdom.com/law"  target="_blank" ></a></div>
+            <!-- <span class="ztmenu-block-other">其它布局</span> -->
+        </div>
+    </div>
+    <div class="ztmenu-block-div ztmenu-block-div-1" style="margin-top:-5px;margin-bottom:0px;padding:0px;"></div>
+    <div style="width:100%;margin:0px;padding:0px;height:1px;" id="posit-top"></div>
+    
+    <iframe src="" style="width:100%;height:100%;margin:0px;padding:0px;" frameborder="0" name="iframe_a"  id="iframe_a">
+        <p>您的浏览器不支持  iframe 标签。</p>
+    </iframe>
+
+    <!-- <div class="ztmenu-block-div ztmenu-block-div-2" ></div> -->
+    <div class="ztmenu-block ztmenu-block-2 ztmenu-block-bottom" id="posit-bottom">
+        <div class="ztrow ztrow-around" style="padding-top:10px;padding-bottom:16px;margin-right:30px;" id="row5">
+            <div class="ztcolumn ztcolumn-center" data-href="../../index.html" data-target="iframe_a" id="index" onclick="bottomMenuClick(this)">
+                <img src="../../img/home.png" style="width:30px;height:30px;">
+                <div>首页</div>
+            </div>  
+            <div class="ztcolumn ztcolumn-center" data-href="contactme.html" data-target="iframe_a"  id="us"  onclick="bottomMenuClick(this)">
+                <img src="../../img/us.png" style="width:30px;height:30px;">
+                <div>咨询留言</div>
+            </div>
+            <div class="ztcolumn ztcolumn-center" data-href="quotation.html?finance" data-target="iframe_a"  id="quotation"  onclick="bottomMenuClick(this)">
+                <img src="../../img/quotation.png" style="width:30px;height:30px;">
+                <div>报价</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div id="temp"></div> -->
+</body>
+<style>
+</style>
+<script>
+    localStorage.clear();
+    var positTop = document.getElementById("posit-top");
+    var positBottom = document.getElementById("posit-bottom");
+    var iframe_a = document.getElementById("iframe_a");
+    function contentResize(){
+        var rect_top = positTop.getBoundingClientRect();
+        var rect_bottom = positBottom.getBoundingClientRect();
+        // var x_top = rect_top.left;
+        var y_top = rect_top.top;
+        // var x_bottom = rect_bottome.left;
+        var y_bottom = rect_bottom.top;
+        var height = Math.floor(y_bottom - y_top); 
+        // var width = Math.floor(y_bottom - 0); 
+        // console.log("height:",height);
+        iframe_a.style.height = ((height - 0).toString())+"px";
+    } 
+
+    function resolvePageParam(){
+        // console.log("start:","start")
+        var pageParam = window.location.search;
+        // console.log("pageParam:",pageParam);
+        // console.log("pageParam:",pageParam)
+        if(!isStringEmpty(pageParam)){
+            var value = pageParam.substring(1,pageParam.length);
+            // console.log("window.frames:",window.iframe_a) 
+            // window.iframe_a.location.href = 'contactme.html';
+            // console.log("window:",window);
+            var jump = document.getElementById(value);
+            toJump(jump);
+        }
+    }
+    function toJump(jump){
+        var jumpUrl = jump.getAttribute("data-href");
+        // jump.setAttribute("data-href","../../img/dd.png");
+        if(window.name != ''){
+            window.location.href=jumpUrl;
+        }
+        else{
+            window.iframe_a.src = jumpUrl;
+        }
+        // var jump1 = document.getElementById("jump1");
+        // var fooValue = jump1.dataset.foo;
+        // jump1.dataset.foo = "baz";
+        switchBottomMenu(jump.id);
+    }
+
+    function bottomMenuClick(obj){
+        // switchBottomMenu(jump.id);
+        // switchBottomMenu(obj.getAttribute("id"));
+        toJump(obj);
+    }
+
+    function switchBottomMenu(selId){
+        var bottomMenu = document.getElementById("row5");
+        // var childs = topMunu.childNodes;
+        var children = bottomMenu.children;
+        // console.log("children:",children);
+        for(var i =0;i<children.length;i++){
+            var item = children[i];
+            var itemChild = item.children;
+            // console.log("item.id...:",item.id);
+            // console.log("selId:",selId);
+            if(item.id==="index"){
+                // var temp = itemChild[0];
+                // console.log("temp:",temp.localName);
+                itemChild[0].src="../../img/home.png"
+                itemChild[1].style.color = "";
+                if(item.id === selId){
+                    itemChild[0].src="../../img/home_sel.png";
+                    itemChild[1].style.color = "#18E269";
+                }
+            }
+            else if(item.id==="us"){
+                itemChild[0].src="../../img/us.png"
+                itemChild[1].style.color = "";
+                if(item.id === selId){
+                    itemChild[0].src="../../img/us_sel.png";
+                    itemChild[1].style.color = "#18E269";
+                }
+            }
+            else if(item.id==="quotation"){
+                itemChild[0].src="../../img/quotation.png"
+                itemChild[1].style.color = "";
+                if(item.id === selId){
+                    itemChild[0].src="../../img/quotation_sel.png";
+                    itemChild[1].style.color = "#18E269";
+                }
+            }
+        }
+    }
+
+    function  resize(){
+        if(_relativeWidth < 540){
+            var bottomMenu = document.getElementById("row5");
+            var children = bottomMenu.children;
+            console.log("children:::",children.length);
+            for(var i = 0; i<children.length; i++){
+                var item = children[i];
+                var itemChild = item.children;
+                var temp = itemChild[0];
+                if(temp.localName==="img"){
+                    temp.style.width="1.5em";
+                    temp.style.height = "1.5em";
+                }
+            }
+        }
+        else{
+            var bottomMenu = document.getElementById("row5");
+            var children = bottomMenu.children;
+            for(var i =0;i<children.length;i++){
+                var item = children[i];
+                var itemChild = item.children;
+                var temp = itemChild[0];
+                if(temp.localName==="img"){
+                    temp.style.width="30px";
+                    temp.style.height = "30px";
+                }
+            }
+        }
+    }
+
+ 
+    var ua = typeof window === 'object' ? window.navigator.userAgent : '';
+    let _isIOS     = -1;
+    let _isAndroid = -1;
+
+    function isIOS() {
+        if (_isIOS === -1) {
+            _isIOS = /iPhone|iPod|iPad/i.test(ua) ? 1 : 0;
+        }
+        return _isIOS === 1;
+    }
+
+    function isAndroid() {
+        if (_isAndroid === -1) {
+            _isAndroid = /Android/i.test(ua) ? 1 : 0;
+        }
+        return _isAndroid === 1;
+    } 
+
+    let innerHeight = window.innerHeight;
+    let innerWidth =  window.screen.availWidth;
+
+    function keyboardPopupEvent(IOO,tagHeight){
+        try{
+            // document.getElementsByClassName("ztcontainer")[0].style.height = tagHeight;
+            if(IOO == "out"){
+                document.getElementById("row5").style.display = "none";
+            }
+            else{
+                document.getElementById("row5").style.display = "flex";
+            }
+        }catch(e){
+            console.log(e)
+        }
+    }
+
+    let orientationchangeOld = 1;
+    let orientationchangeNew = 1;
+
+    //监听设备方向变化
+    window.addEventListener('orientationchange', function() {
+        if (isLandscape()) {
+            //设备处于横屏状态
+            // console.log('横屏');
+        } else {
+            //设备处于竖屏状态
+            // console.log('竖屏');
+        }
+        orientationchangeNew++;
+    });
+    
+
+    function  keyboardPopup(){
+        if(!(isIOS() || isAndroid())){return 0;}
+        let newInnerHeight = window.innerHeight;
+        let newInnerWidth = window.screen.availWidth;
+        // alert(`键盘弹出事件处理:${innerHeight.toString()+"--"+newInnerHeight.toString()+"--"+ innerWidth.toString()+"--"+newInnerWidth.toString()}`);
+        // document.getElementById("temp").innerHTML = innerHeight.toString()+"--"+newInnerHeight.toString()+"--"+ innerWidth.toString()+"--"+newInnerWidth.toString()
+        if(newInnerWidth !== innerWidth){
+            // orientationchangeOld = orientationchangeNew;
+            innerWidth = newInnerWidth;
+            innerHeight = newInnerHeight;
+            keyboardPopupEvent("none",newInnerHeight);
+            // alert("横竖切换");
+            return 0 ; 
+            //false
+        }
+
+        if (innerHeight > newInnerHeight) {
+            // 键盘弹出事件处理
+            keyboardPopupEvent("out",innerHeight);
+
+        } else {
+            // 键盘收起事件处理
+            // console.log("键盘收起事件处理");
+            keyboardPopupEvent("in",innerHeight);
+        }
+        return 1; 
+        //true
+    }
+   
+
+
+    function isStringEmpty(str) {
+        return typeof str === 'undefined' || str === null || str.trim().length === 0;
+    }
+    window.addEventListener("resize", function() {
+        const result = keyboardPopup();
+        // if(result === 1){return;}
+        contentResize();
+        resize();
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        keyboardPopup();
+        contentResize();
+        resolvePageParam();
+        resize();
+    });
+</script>
+</html>

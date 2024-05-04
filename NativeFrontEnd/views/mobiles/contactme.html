@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html class="smfont">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache"> 
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta HTTP-EQUIV="expires" CONTENT="0">
+    <title>联系我们</title>
+    <link rel="stylesheet" type="text/css" href="../../css/gfm/gfm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/ztgridflex/ztgridflex.css" />
+    <script type="text/javascript" src="../../css/ztgridflex/ztgridflex.js"></script>
+    <script type="text/javascript" src="../../js/email.js" defer></script>
+    <script type="text/javascript" src="../../css/gfm/gfm.js"></script>
+    <script type="text/javascript" src="../../js/ztloader/ztloader.js"></script>
+</head>
+<body >
+    <div class="ztcontainer">
+        <div class="ztmenu-block ztmenu-block-1 ztmenu-block-top">	&nbsp;</div>
+        <div class="ztmenu-block-div ztmenu-block-div-1"></div>
+        <div class="ztcontent" style="margin-bottom:10px;" id="ztcontent">
+            <div class="ztcolumn ztcolumn-center">
+                <!-- style="margin:0px;position:absolute;height:99%;width:99%;box-sizing: border-box;" -->
+                <div class="gfm">
+                    <form name="myForm" autocomplete='off'>
+                        <label for="CallName">称呼</label>
+                        <input type="text" id="CallName" name="CallName" placeholder="称呼">
+                    
+                        <label for="Phone">联系方式</label>
+                        <input type="text" id="Phone" name="Phone" placeholder="联系方式">
+                    
+                        <label for="Description">描述</label>
+                        <textarea  id="Description" name="Description" placeholder="描述"></textarea>
+                        
+                        <input type="submit" id="dd"  value="发送">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="ztbottom">
+        </div>
+    </div>
+
+    <script>
+       localStorage.clear();
+       async function submit1(){
+            var myFrom = document.forms["myForm"];
+            var formData = new FormData(myFrom);
+            var json = {};
+            formData.forEach(function(value, key){
+                json[key] = value;
+            });
+            var jsonString = JSON.stringify(json);
+            // console.log("jsonString:::",jsonString);
+            myFrom.reset();
+            // for(let [key, value] of formData.entries()){
+            //     formJson[key] = value;
+            // }
+
+            postEmailAjax("/websit-api/Email/Email/SendEmail",jsonString);
+            // alert("测试异步");
+        }
+
+        var btn = document.getElementById("dd");
+        btn.onclick = async function(){
+            // alert("dddd")
+            openLoader(this);
+            submit1();
+        }
+
+       async function  postEmail(url,param){
+            axios.post(url,param).then(function(res){
+                // console.log("res:",res);
+                alert("发送成功！");
+            })
+            .catch(error => alert(error))
+            .finally(alert("finally"));
+       }
+    </script>
+
+</body>
+
+</html>

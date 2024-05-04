@@ -1,0 +1,79 @@
+.ztrow{
+    display:flex;
+    display: -webkit-flex;
+    /* justify-content:center; */
+    flex-direction:row;
+}
+.ztrowcolor{
+    background-color:#FFFFFF;
+}
+.ztrowdefault{
+    margin-top:40px;
+}
+
+.ztrow-left{
+    align-items:flex-start;
+    -webkit-align-items:flex-start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;  
+}
+.ztrow-between{
+    align-items:flex-start;
+    -webkit-align-items:flex-start;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;  
+}
+.ztrow-center{
+    align-items:flex-start;
+    -webkit-align-items:flex-start;
+    justify-content:center;
+    -webkit-justify-content:center;
+}
+
+.ztrow-around{
+    align-items:flex-start;
+    -webkit-align-items:flex-start;
+    justify-content:space-around;
+    -webkit-justify-content:space-around;
+}
+.ztrow-wrap-wrap{
+    flex-wrap:wrap;
+}
+
+
+.ztcolumn{
+    display:flex;
+    display: -webkit-flex;
+    flex-direction:column;
+}
+/* .ztcolumndefault{
+  
+} */
+.ztcolumn-item{
+    margin:5px;
+    /* border-style:solid;
+    border-width:1px; */
+}
+
+.ztcolumn-center{
+    -webkit-align-items: center;
+    align-items: center;
+    justify-content:center;
+    -webkit-justify-content:center;
+    /* margin-top:50px; */
+    /* margin:auto; */
+}
+
+
+.ztmenu-block-div{
+    background-color:#FFFFFF;
+    margin:5px;
+}
+
+/* 部分浏览器不支持@media */
+/* @media screen and (max-width:540px) {
+    .sm{
+        width:100%;
+    }
+} */
+

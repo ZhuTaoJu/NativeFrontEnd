@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html class="smfont">
+<head>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache"> 
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta HTTP-EQUIV="expires" CONTENT="0">
+    <title>联系我们</title>
+    <link rel="stylesheet" type="text/css" href="../../css/gfm/gfm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/ztgridflex/ztgridflex.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/zttable/zttable.css" />
+    <script type="text/javascript" src="../../css/ztgridflex/ztgridflex.js"></script>
+    <script type="text/javascript" src="../../js/email.js"></script>
+    <script type="text/javascript" src="../../css/gfm/gfm.js"></script>
+    
+    <link rel="stylesheet" href="../../jQuery/jquery.mobile-1.4.5.min.css">
+    <script src="../../jQuery/jquery.min.js"></script>
+    <script src="../../jQuery/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body >
+    <div class="ztcontainer">
+        <div class="ztmenu-block ztmenu-block-1 ztmenu-block-top">	&nbsp;</div>
+        <div class="ztmenu-block-div ztmenu-block-div-1"></div>
+        <div class="ztcontent" style="margin-bottom:10px;" id="ztcontent">
+            <div class="ztrow ztrow-center"><h1>物联网系统报价单</h1></div>
+            <div class="ztrow ztrow-center">物联网系统主要以数据实时性，设备数量以及数据处理和展现难度收费，当然这些费用由我来承担，我只收技术服务费。</div>
+            <!-- <div class="ztrow ztrow-center"> -->
+                <div calss="zttable ztrow ztrow-center">
+                    <div style="position:relative;margin-top: 30px;" data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive">
+                        <div data-role="header">
+                          <h1>报价明细</h1>
+                        </div>
+                        
+                        <div data-role="main" class="ui-content">
+                          <table data-role="table"   class="ui-responsive ui-shadow" data-column-btn-text="字段列表" id="myTable">
+                            <thead>
+                              <tr>
+                                <th data-priority="6">设备数</th>
+                                <th data-priority="2">企业数</th>
+                                <th data-priority="3">使用授权费</th>
+                                <th data-priority="4">技术服务费</th>
+                                <th data-priority="5" class="remark" >备注</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>3台及以下</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>500/年</td>
+                                <td class="remark">如果您的网络平台只是做推广展示用，这是个不错的选择。</td>
+                              </tr>
+                              <tr>
+                                <td>8台及以下</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>2000/年</td>
+                                <td class="remark">
+                                   接受部分功能定制或改版;<a href="#myPopup" data-rel="popup" class="my-tooltip-btn ui-btn ui-btn-inline ui-corner-all">更多内容</a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                <td>不限</td>
+                                <td>1</td>
+                                <td>0</td>  
+                                <td>10000/年</td>
+                                <td>
+                                   <class="remark">接受部分功能定制或改版；<a href="#myPopup1" data-rel="popup" class="my-tooltip-btn ui-btn ui-btn-inline ui-corner-all">更多内容</a>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                </div>
+            <!-- </div> -->
+            
+        </div>
+        <div class="ztbottom">
+          
+        </div>
+        
+        <div data-role="popup" id="myPopup" class="ui-content">
+          <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">关闭</a>
+          <p>需要用户自己购买服务器（在华为、阿里或其他官网上自行购买，不懂我可以指导；如果只是内网可通，
+            购买物理服务器也可以。如果网络要求不是太高，也可以做个局部组网。）</p>
+        </div>
+
+        <div data-role="popup" id="myPopup1" class="ui-content">
+          <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">关闭</a>
+          <p>需要用户自己购买服务器（在华为、阿里或其他官网上自行购买，不懂我可以指导；如果只是内网可通，
+            购买物理服务器也可以。如果网络要求不是太高，也可以做个局部组网。）</p>
+        </div>
+    </div>
+
+    <script>
+       localStorage.clear();
+      //  console.log("window:",window);
+    </script>
+
+   <style>
+        th {
+            border-bottom: 1px solid #d6d6d6;
+            background-color: #555555;
+            color:#f8f6f6;
+        }
+        .remark{
+            max-width: 90px;
+        }
+        .interval{
+            min-width: 50px;
+        }
+        tr:nth-child(even) {
+            background: #e9e9e9;
+        }
+      .ui-btn.my-tooltip-btn,
+      .ui-btn.my-tooltip-btn:hover,
+      .ui-btn.my-tooltip-btn:active {
+          background: none;
+          border: 0;
+          margin: 0px;
+          padding:0px;
+          font-size: 1em;
+      }
+    </style>
+
+</body>
+
+</html>

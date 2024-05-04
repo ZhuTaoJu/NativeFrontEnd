@@ -1,0 +1,49 @@
+.ztcard
+{
+    /* border-style:solid; 
+    border-width:1px;
+    border-color:black; */
+    /* margin-top:10px; */
+    /* background-color:red; */
+    /* margin: auto; */
+    /* background-color:#FFFFFF; */
+}
+.carddefault{
+    /* width:400px; */
+    /* height:400px; */
+    /* margin-left:30px;
+    margin-right:30px; */
+}
+
+.carditem{
+    margin-top:8px;
+}
+
+.activity{
+    cursor:pointer;
+    transition:0.1s;
+}
+.activity:hover{
+   /* border-style:solid;
+   border-width:1px; */
+   transform:rotateX(20deg);
+   -webkit-transform:rotateX(20deg);
+   box-shadow:10px 10px 5px #706f6f;
+   background-color:rgb(232, 238, 238);
+}
+
+.activity:active{
+    border-width:0px;
+    transform:rotateX(0deg);
+    box-shadow:0px 0px 0px
+}
+
+.noactivity{
+    /* cursor:pointer; */
+    transition:0.1s;
+}
+.noactivity:hover{
+    /* border-style:solid;
+    border-width:1px; */
+    background-color:rgb(232, 238, 238);
+ }

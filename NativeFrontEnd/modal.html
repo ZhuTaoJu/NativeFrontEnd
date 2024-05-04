@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>mode模态测试</title>
+<meta charset="utf-8"></meta>
+<style>
+.modal{
+      display:none;
+      position:fixed;
+      z-index:1;
+      width:100%;
+      height:100%;
+      left:0;
+      top:0;
+      padding-top:100px;
+      overflow:auto;
+      background-color:rgb(0,0,0);
+      background-color:rgb(0,0,0,0.9);
+}
+#myimg{
+    cursor:pointer;
+    transition:0.1s;
+}
+#myimg:hover{
+   border-style:solid;
+   border-width:1px;
+   transform:rotateX(20deg);
+   -webkit-transform:rotateX(20deg);
+   box-shadow:10px 10px 5px #888888
+}
+#myimg:active{
+    border-width:0px;
+    transform:rotateX(0deg);
+    box-shadow:0px 0px 0px
+}
+.close{
+   margin-right:20px;
+}
+.max{
+  margin-right:20px;
+  display:none;
+}
+.min{
+ margin-right:20px;
+ display:none;
+}
+.group{
+     position:absolute;
+     top:10px;
+     right:10px;
+     font-weight:bold;
+     font-size:40px;
+     color:#f1f1f1;
+}
+.close:hover,
+.close:focus{
+  color:#bbb;
+  text-decoration:none;
+  cursor:pointer;
+}
+.max:hover,
+.max:focus{
+ color:#bbb;
+ text-decoration:none;
+ cursor:pointer;
+}
+.min:hover,
+.min:focus{
+ color:#bbb;
+ text-decoration:none;
+ cursor:pointer;
+}
+.modal-img{
+   display:block;
+   margin:auto;
+   /* width:90%; */
+   /* max-width:700px; */
+   overflow:auto;
+}
+.modal-img,#caption{
+  animation-name:zoom;
+  animation-duration:0.6s;
+  -webkit-animation-name:zoom;
+  -webkit-animation-duration:0.6;
+}
+@keyframes zoom{
+     from{transform:scale(0.1)}
+     to{transform:scale(1)}
+}
+@-webkit-keyframes zoom{
+     from{transform:scale(0.1)}
+     to{transform:scale(1)}
+}
+#caption{
+	margin:auto;
+	display:block;
+	width:80%;
+	max-width:700px;
+	text-align:center;
+	color:#ccc;
+	padding-top:20px;
+	padding-bottom:0px;
+	height:150px;
+}
+@media only screen and (max-width:1400px){
+	.modal-img{
+		width:100%;
+	}
+}
+@media only screen and (max-width:1200px){
+	.modal-img{
+		width:100%;
+	}
+}
+@media only screen and (max-width:992px){
+	.modal-img{
+		width:100%;
+	}
+}
+@media only screen and (max-width:768px){
+	.modal-img{
+		width:100%;
+	}
+}
+@media only screen and (max-width:576px){
+	.modal-img{
+		width:100%;
+	}
+}
+</style>
+</head>
+<body>
+<div class="modal"  id="myModal">
+	<span class="group">
+		<span class="min">-</span>
+		<span class="max">[]</span>
+		<span class="close">X</span>  
+	</span>
+	<img  class="modal-img"  id="img01"></img>
+	<div id="caption">vfvvvv</div>
+</div>
+<div>
+<img src="./img/home_sel.png"  alt="动画淡出效果" id="myimg"  width="500px" height="500px">
+</div>
+<script>
+var img = document.getElementById("myimg");
+var modalimg = document.getElementById("img01");
+var modal = document.getElementById("myModal");
+var captionText = document.getElementById("caption");
+img.onclick=function(){
+	modal.style.display="block";
+	modalimg.src = this.src;
+	modalimg.alt=this.alt;
+	captionText.innerHTML = this.alt;
+	
+}
+
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function(){
+      modal.style.display="none";
+}
+
+</script>
+</body>
+</html>

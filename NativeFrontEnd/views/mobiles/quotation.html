@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="smfont">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta HTTP-EQUIV="expires" CONTENT="0">
+    <meta itemprop="name" content="陕西意达通科技有限公司">
+    <meta itemprop="Description" content="软件定制开发，MES，ERP，财务">
+    <meta itemprop="image" content="../../img/favicon.ico">
+    <title>意达通</title>
+    <link rel="stylesheet" type="text/css" href="../../css/ztgridflex/ztgridflex.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/ztnavigation/ztnavigation.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/ztcontainer/ztcontainer.css" />
+    <script type="text/javascript" src="../../css/ztgridflex/ztgridflex.js"></script>
+    <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="ztcontainer">
+    <div class="ztmenu-block ztmenu-block-1 ztmenu-block-top">
+        <div class="ztrow" id="row2">
+            <div class="ztrow ztrow-left" style="margin-right:10px;" data-href="./finance.html" data-target="iframe_pg" id="finance" onclick="bottomMenuClick(this)">
+                <img src="../../img/finance.jpg" style="width:20px;height:20px;">
+                <div>财务系统</div>
+            </div>  
+            <div class="ztrow ztrow-left" style="margin-right:10px;" data-href="mac.html" data-target="iframe_pg"  id="mac"  onclick="bottomMenuClick(this)">
+                <img src="../../img/mac.jpg" style="width:20px;height:20px;">
+                <div>物联网系统</div>
+            </div>
+            <div class="ztrow ztrow-left" style="margin-right:10px;" data-href="proc.html" data-target="iframe_pg"  id="proc"  onclick="bottomMenuClick(this)">
+                <img src="../../img/proc.jpg" style="width:20px;height:20px;">
+                <div>生产管理(MES)</div>
+            </div>
+        </div>
+    </div>
+    <div class="ztmenu-block-div ztmenu-block-div-1" style="margin-top:-5px;margin-bottom:0px;padding:0px;"></div>
+    <div style="width:100%;margin:0px;padding:0px;height:1px;" id="posit-top"></div>
+
+    <iframe src="" style="width:100%;height:100%;margin:0px;padding:0px;" frameborder="0" name="iframe_pg"  id="iframe_pg">
+        <p>您的浏览器不支持  iframe 标签。</p>
+    </iframe>
+
+    <div class="ztmenu-block ztmenu-block-2 ztmenu-block-bottom" style="height:1px;" id="posit-bottom">
+        <!-- &nbsp; -->
+    </div>
+</div>
+
+</body>
+<style>
+</style>
+<script>
+    localStorage.clear();
+    var positTop = document.getElementById("posit-top");
+    var positBottom = document.getElementById("posit-bottom");
+    var iframe_pg = document.getElementById("iframe_pg");
+    function contentResize(){
+        // console.log("contentResize!!");
+        let rect_top = positTop.getBoundingClientRect();
+        let rect_bottom = positBottom.getBoundingClientRect();
+        // let x_top = rect_top.left;
+        let y_top = rect_top.top;
+        // let x_bottom = rect_bottome.left;
+        let y_bottom = rect_bottom.top;
+        let height = Math.floor(y_bottom - y_top); 
+        // let width = Math.floor(y_bottom - 0); 
+        // console.log("height:",height);
+        iframe_pg.style.height = ((height - 10).toString())+"px";
+    } 
+
+    function resolvePageParam(){
+        let pageParam = window.location.search;
+        // console.log("pageParam:",pageParam);
+        if(!isStringEmpty(pageParam)){
+            let value = pageParam.substring(1,pageParam.length);
+            // console.log("window:",window);
+            let jump = document.getElementById(value);
+            toJump(jump);
+        }
+    }
+    function toJump(jump){
+        let jumpUrl = jump.getAttribute("data-href");
+        // if(window.name != ''){
+        //     window.location.href=jumpUrl;
+        // }
+        // else{
+            window.iframe_pg.src = jumpUrl;
+        // }
+        switchBottomMenu(jump.id);
+    }
+
+    function bottomMenuClick(obj){
+        toJump(obj);
+    }
+
+    function switchBottomMenu(selId){
+        let bottomMenu = document.getElementById("row2");
+        let children = bottomMenu.children;
+        for(let i =0;i<children.length;i++){
+            let item = children[i];
+            let itemChild = item.children;
+            if(item.id==="finance"){
+                itemChild[0].src="../../img/finance.jpg"
+                itemChild[1].style.color = "";
+                if(item.id === selId){
+                    itemChild[0].src="../../img/finance_sel.jpg";
+                    itemChild[1].style.color = "#18E269";
+                }
+            }
+            else if(item.id==="mac"){
+                itemChild[0].src="../../img/mac.jpg"
+                itemChild[1].style.color = "";
+                if(item.id === selId){
+                    itemChild[0].src="../../img/mac_sel.jpg";
+                    itemChild[1].style.color = "#18E269";
+                }
+            }
+            else if(item.id==="proc"){
+                itemChild[0].src="../../img/proc.jpg"
+                itemChild[1].style.color = "";
+                if(item.id === selId){
+                    itemChild[0].src="../../img/proc_sel.jpg";
+                    itemChild[1].style.color = "#18E269";
+                }
+            }
+        }
+    }
+
+    function  resize(){
+        if(_relativeWidth < 540){
+            let bottomMenu = document.getElementById("row2");
+            let children = bottomMenu.children;
+            // console.log("children:::",children.length);
+            for(let i = 0; i<children.length; i++){
+                let item = children[i];
+                let itemChild = item.children;
+                let temp = itemChild[0];
+                if(temp?.localName==="img"){
+                    temp.style.width="1em";
+                    temp.style.height = "1em";
+                }
+            }
+        }
+        else{
+            let bottomMenu = document.getElementById("row2");
+            let children = bottomMenu.children;
+            for(let i =0;i<children.length;i++){
+                let item = children[i];
+                let itemChild = item.children;
+                let temp = itemChild[0];
+                if(temp?.localName==="img"){
+                    temp.style.width="20px";
+                    temp.style.height = "20px";
+                }
+            }
+        }
+    }
+
+ 
+    let ua = typeof window === 'object' ? window.navigator.userAgent : '';
+    let _isIOS     = -1;
+    let _isAndroid = -1;
+
+    function isIOS() {
+        if (_isIOS === -1) {
+            _isIOS = /iPhone|iPod|iPad/i.test(ua) ? 1 : 0;
+        }
+        return _isIOS === 1;
+    }
+
+    function isAndroid() {
+        if (_isAndroid === -1) {
+            _isAndroid = /Android/i.test(ua) ? 1 : 0;
+        }
+        return _isAndroid === 1;
+    } 
+
+    let innerHeight = window.innerHeight;
+    let innerWidth =  window.screen.availWidth;
+
+    function keyboardPopupEvent(IOO,tagHeight){
+        try{
+            if(IOO == "out"){
+                document.getElementById("row2").style.display = "none";
+            }
+            else{
+                document.getElementById("row2").style.display = "flex";
+            }
+        }catch(e){
+            console.log(e)
+        }
+    }
+
+    let orientationchangeOld = 1;
+    let orientationchangeNew = 1;
+
+    //监听设备方向变化
+    window.addEventListener('orientationchange', function() {
+        if (isLandscape()) {
+            //设备处于横屏状态
+            // console.log('横屏');
+        } else {
+            //设备处于竖屏状态
+            // console.log('竖屏');
+        }
+        orientationchangeNew++;
+    });
+    
+
+    function  keyboardPopup(){
+        if(!(isIOS() || isAndroid())){return 0;}
+        let newInnerHeight = window.innerHeight;
+        let newInnerWidth = window.screen.availWidth;
+        if(newInnerWidth !== innerWidth){
+            innerWidth = newInnerWidth;
+            innerHeight = newInnerHeight;
+            keyboardPopupEvent("none",newInnerHeight);
+            // alert("横竖切换");
+            return 0 ; 
+            //false
+        }
+
+        if (innerHeight > newInnerHeight) {
+            // 键盘弹出事件处理
+            keyboardPopupEvent("out",innerHeight);
+
+        } else {
+            // 键盘收起事件处理
+            // console.log("键盘收起事件处理");
+            keyboardPopupEvent("in",innerHeight);
+        }
+        return 1; 
+        //true
+    }
+   
+
+
+    function isStringEmpty(str) {
+        return typeof str === 'undefined' || str === null || str.trim().length === 0;
+    }
+    window.addEventListener("resize", function() {
+        const result = keyboardPopup();
+        // if(result === 1){return;}
+        contentResize();
+        resize();
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        keyboardPopup();
+        contentResize();
+        resolvePageParam();
+        resize();
+    });
+</script>
+</html>
